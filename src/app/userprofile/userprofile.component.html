@@ -1,0 +1,17 @@
+<h6 class="text-end">Welcome, <span class="text-success">{{userObj?.username}}</span></h6>
+<h6 class="text-end text-info">{{userObj?.email}}</h6>
+
+<ul class="nav justify-content-around">
+    
+    <li class="nav-item">
+      <a class="nav-link" routerLink="addtask">Add Task</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="viewtask">View Task</a>
+    </li>
+  
+</ul>
+
+<div class="container">  
+    <router-outlet></router-outlet>
+</div>

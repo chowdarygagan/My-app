@@ -1,0 +1,37 @@
+<div class="container mt-5 mx-auto">
+    <form [formGroup]="addTaskForm" class="w-50 mx-auto bg-dark text-white p-3 forms mt-5 mb-5 form-group" (ngSubmit)="addTaskForm.valid && formSubmit()" #formref="ngForm">
+
+        <div class="mb-3">
+            <label for="task">Add Task</label>
+            <input type="text" formControlName="addtask" id="task" class="form-control" required placeholder="add task"> 
+            <div *ngIf="addtasks.invalid && (addtasks.dirty || addtasks.touched)">
+                <div *ngIf="addtasks.errors?.['required'] " class="text-danger">
+                    *add task is required
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="time">Date</label>
+            <input type="date" formControlName="date" id="time" class="form-control" required placeholder="date"> 
+            <div *ngIf="dates.invalid && (dates.dirty || dates.touched)">
+                <div *ngIf="dates.errors?.['required'] " class="text-danger">
+                    *date is required
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="dis">Discription</label>
+            <textarea formControlName="description" id="dis" cols="30" rows="5" class="form-control" placeholder="add dis"></textarea>
+            <div *ngIf="des.invalid && (des.dirty || des.touched)">
+                <div *ngIf="des.errors?.['required'] " class="text-danger">
+                    *description is required
+                </div>
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-info mb-3 mt-3   w-100">
+            Add Task
+        </button>
+
+    </form>
+</div>

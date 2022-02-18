@@ -1,0 +1,36 @@
+<div class="container mt-5 mx-auto">
+
+     <!-- user registration error messages -->
+     <p class="fw-bold text-center text-danger" *ngIf="registeerError.error">
+        {{registeerError.errormessage}}
+    </p>
+    <form [formGroup]="loginForm" class="w-50 mx-auto bg-dark text-white p-3 forms mt-5 mb-5 form-group" (ngSubmit)="loginForm.valid && formSubmit()" #formref="ngForm">
+        
+     
+        <div class="mb-3 ">
+            <label for="un">Username</label>
+            <input type="text" formControlName="username" id="un" class="form-control" required placeholder="Username">
+            <div  *ngIf="usernames.invalid && (usernames.dirty || usernames.touched)">
+                <div *ngIf="usernames.errors?.['required']" class="text-danger">
+                    *Username Requried
+                </div>
+            </div>
+            
+        </div>
+        <div class="mb-3 ">
+            <label for="pa">Password</label>
+            <input type="password" formControlName="password" id="pa" class="form-control" placeholder="Password">
+            <div  *ngIf="passwords.invalid && (passwords.dirty || passwords.touched)">
+                <div *ngIf="passwords.errors?.['required']" class="text-danger">
+                    *Password is requried
+                </div>
+                <div *ngIf="passwords.errors?.['minlength']" class="text-danger">
+                    *Minimum length is 5
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-info mb-3 mt-3   w-100">
+            Login 
+        </button>
+    </form>
+</div>
