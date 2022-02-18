@@ -52,6 +52,7 @@
             <label for="photo">select</label>
             <input type="file" name="photo"  id="photo" class="form-control" (input)="onFileSelected(profile.files[0])" #profile placeholder="photo">
         </div>
+        <img src={{imageUrl}} alt="" width="100px">
 
         <button type="submit" class="btn btn-info mb-3 mt-3   w-100">
             Login 
